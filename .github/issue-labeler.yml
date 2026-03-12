@@ -2,7 +2,7 @@
 310p:
     - '(310p)'
 glm5:
-    - ['(glm5)/i']
+    - '(glm5)/i'
 qwen3.5:
     - '(qwen3.5)'
 deepseek:
@@ -11,3 +11,4 @@ kimi k2:
     - '(kimi k2|kimik2)'
 kimi k2.5:
     - '(kimi k2.5|kimik2.5)'
+critical: ['/(critical|urgent)/i']
