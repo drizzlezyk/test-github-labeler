@@ -28,7 +28,7 @@ jobs:
             Stale issues will be automatically closed if no further activity occurs within 14 days.
 
           # Close stale issues after a period of inactivity
-          days-before-close: 0.08
+          days-before-close: 0.1
           close-issue-message: |
             This issue is being closed due to a lack of recent activity. 
             If you have any further questions or requirements, please feel free to reopen this issue or create a new one.
@@ -57,7 +57,7 @@ jobs:
             Thank you for your understanding and cooperation.
 
           # Close stale issues after a period of inactivity
-          days-before-close: 0.08
+          days-before-close: 0.1
           close-issue-message: |
             This issue is being closed due to a lack of recent activity. 
             If you have any further questions or requirements, please feel free to reopen this issue or create a new one.
