@@ -26,7 +26,9 @@ llm-model:
 deepseek:
   - '/(deepseek[- ]*(r1|v3(\.2)?)\S*)/i'
 kimi-k2:
-  - '/((kimi k2|kimik2)(?!\.5))/i'
+  - '/((kimi k2|kimik2|kimi-k2)(?!\.5))/i'
+kimi-k2.5:
+  - '/((kimi k2.5|kimik2.5|kimi-k2.5)/i'
 glm5:
   - '/(glm5)/i'
 qwen3-moe:
