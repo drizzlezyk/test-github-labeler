@@ -1,7 +1,7 @@
 name: "Close stale resolved issues"
 on:
   schedule:
-    - cron: '*/20 * * * *' 
+    - cron: '*/3 * * * *' 
 
 jobs:
   stale:
@@ -16,10 +16,10 @@ jobs:
         with:
           repo-token: ${{ secrets.ZYK_PERSONAL_TOKEN }}
 
-          # 只处理带有 resolved 标签的 issue
+          # Only process issues with the 'resolved' label
           only-labels: 'resolved'
 
-          # 3 天后标记为 stale
+          # Mark as stale after a period of inactivity
           days-before-stale: 0.03
           stale-issue-label: 'stale'
           stale-issue-message: |
@@ -28,17 +28,17 @@ jobs:
             If you believe this is in error, please update the issue to remove the "stale" label. 
             Stale issues will be automatically closed if no further activity occurs.
 
-          # 4 天后关闭 stale 的 issue
+          # Close stale issues after a period of inactivity
           days-before-close: 0.03
           close-issue-message: |
             This issue is being closed due to a lack of recent activity. 
             If you have any further questions or requirements, please feel free to reopen this issue or create a new one.
 
-          # 当 issue 有更新时，自动移除 stale 标签（默认 true）
+          # Automatically remove the 'stale' label when the issue is updated (default is true)
           remove-stale-when-updated: true
-          # 同时移除 resolved 标签
+          # Also remove the 'resolved' label
           labels-to-remove-when-unstale: 'resolved'
 
-          # 避免误操作 PR（如果需要也可以处理 PR，这里只针对 issue）
+          # Avoid accidental PR processing (PRs can be handled if needed; this is issue-only)
           days-before-pr-stale: -1
           days-before-pr-close: -1
