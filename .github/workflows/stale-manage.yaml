@@ -1,7 +1,7 @@
 name: "Close stale resolved issues"
 on:
   schedule:
-    - cron: '*/3 * * * *' 
+    - cron: '*/20 * * * *' 
 
 jobs:
   stale:
@@ -23,16 +23,16 @@ jobs:
           days-before-stale: 0.03
           stale-issue-label: 'stale'
           stale-issue-message: |
-            这个 Issue 标记为 resolved 且有一段时间未进一步更新，
-            因此我们将其标记为 "stale"（闲置）状态。
-            若你认为这是误操作，可随时评论移除 "stale" 标签。
-            标记为 stale 的 Issue 在 4 天内无更新活动将自动关闭。
+            This issue has been marked as "resolved" and has not seen any recent activity. 
+            As a result, it is now being labeled as "stale". 
+            If you believe this is in error, please update the issue to remove the "stale" label. 
+            Stale issues will be automatically closed if no further activity occurs.
 
           # 4 天后关闭 stale 的 issue
           days-before-close: 0.03
           close-issue-message: |
-            由于长时间未回复，我们先关闭 issue。
-            后续有新诉求，可重新打开或新提 issue。
+            This issue is being closed due to a lack of recent activity. 
+            If you have any further questions or requirements, please feel free to reopen this issue or create a new one.
 
           # 当 issue 有更新时，自动移除 stale 标签（默认 true）
           remove-stale-when-updated: true
