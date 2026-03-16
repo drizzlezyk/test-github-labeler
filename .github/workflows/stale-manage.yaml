@@ -17,16 +17,15 @@ jobs:
           repo-token: ${{ secrets.ZYK_PERSONAL_TOKEN }}
 
           # Only process issues with the 'resolved' label
-          only-labels: 'resolved'
+          any-of-labels: 'resolved'
 
           # Mark as stale after a period of inactivity
           days-before-stale: 0.03
           stale-issue-label: 'stale'
           stale-issue-message: |
-            This issue has been marked as "resolved" and has not seen any recent activity. 
-            As a result, it is now being labeled as "stale". 
+            This issue has been marked as "resolved" but has not received any feedback for some time, so it is now labeled as "stale". 
             If you believe this is in error, please update the issue to remove the "stale" label. 
-            Stale issues will be automatically closed if no further activity occurs.
+            Stale issues will be automatically closed if no further activity occurs within 14 days.
 
           # Close stale issues after a period of inactivity
           days-before-close: 0.03
@@ -38,6 +37,35 @@ jobs:
           remove-stale-when-updated: true
           # Also remove the 'resolved' label
           labels-to-remove-when-unstale: 'resolved'
+
+          # Avoid accidental PR processing (PRs can be handled if needed; this is issue-only)
+          days-before-pr-stale: -1
+          days-before-pr-close: -1
+      - uses: actions/stale@v10
+        with:
+          repo-token: ${{ secrets.ZYK_PERSONAL_TOKEN }}
+
+          # Only process issues with the 'awaiting-feedback' label
+          any-of-labels: 'awaiting-feedback'
+
+          # Mark as stale after a period of inactivity
+          days-before-stale: 0.03
+          stale-issue-label: 'stale'
+          stale-issue-message: |
+            Hello, to more accurately locate and resolve the issue, we need you to provide the relevant information mentioned above. 
+            If there are no further updates within 14 days, we will temporarily close this issue. 
+            Thank you for your understanding and cooperation.
+
+          # Close stale issues after a period of inactivity
+          days-before-close: 0.03
+          close-issue-message: |
+            This issue is being closed due to a lack of recent activity. 
+            If you have any further questions or requirements, please feel free to reopen this issue or create a new one.
+
+          # Automatically remove the 'stale' label when the issue is updated (default is true)
+          remove-stale-when-updated: true
+          # Also remove the 'resolved' label
+          labels-to-remove-when-unstale: 'awaiting-feedback'
 
           # Avoid accidental PR processing (PRs can be handled if needed; this is issue-only)
           days-before-pr-stale: -1
