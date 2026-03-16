@@ -20,7 +20,7 @@ jobs:
           any-of-labels: 'resolved'
 
           # Mark as stale after a period of inactivity
-          days-before-stale: 0.03
+          days-before-stale: 0.01
           stale-issue-label: 'stale'
           stale-issue-message: |
             This issue has been marked as "resolved" but has not received any feedback for some time, so it is now labeled as "stale". 
@@ -28,7 +28,7 @@ jobs:
             Stale issues will be automatically closed if no further activity occurs within 14 days.
 
           # Close stale issues after a period of inactivity
-          days-before-close: 0.03
+          days-before-close: 0.08
           close-issue-message: |
             This issue is being closed due to a lack of recent activity. 
             If you have any further questions or requirements, please feel free to reopen this issue or create a new one.
@@ -49,7 +49,7 @@ jobs:
           any-of-labels: 'awaiting-feedback'
 
           # Mark as stale after a period of inactivity
-          days-before-stale: 0.03
+          days-before-stale: 0.01
           stale-issue-label: 'stale'
           stale-issue-message: |
             Hello, to more accurately locate and resolve the issue, we need you to provide the relevant information mentioned above. 
@@ -57,7 +57,7 @@ jobs:
             Thank you for your understanding and cooperation.
 
           # Close stale issues after a period of inactivity
-          days-before-close: 0.03
+          days-before-close: 0.08
           close-issue-message: |
             This issue is being closed due to a lack of recent activity. 
             If you have any further questions or requirements, please feel free to reopen this issue or create a new one.
