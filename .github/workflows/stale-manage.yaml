@@ -14,8 +14,6 @@ jobs:
     steps:
       - uses: actions/stale@v10
         with:
-          repo-token: ${{ secrets.ZYK_PERSONAL_TOKEN }}
-
           # Only process issues with the 'resolved' label
           any-of-labels: 'resolved'
 
