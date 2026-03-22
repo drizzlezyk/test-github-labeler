@@ -10,6 +10,7 @@ permissions:
 jobs:
   triage:
     runs-on: ubuntu-latest
+    if: startsWith(github.event.issue.title, '[Bug]:')
     steps:
     - uses: github/issue-labeler@v3.4 #May not be the latest version
       with:
